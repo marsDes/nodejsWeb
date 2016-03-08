@@ -11,7 +11,7 @@ mongoose.connect('mongodb://localhost/imooc')
 
 app.set('views','./views/pages')
 app.set('view engine','jade')
-/*app.use(bodyParser.json())*/
+app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static(path.join(__dirname,'public')))
 app.locals.moment=require('moment')
@@ -52,16 +52,16 @@ app.get('/movie/:id',function(req, res){
 app.get('/admin/movie',function(req, res){
  	res.render('admin',{
  		title:'测试 录入页',
- 		movie:[{
- 			title:'',
- 			director:'',
- 			country:'',
- 			language:'',
- 			year:'',
- 			poster:'',
- 			flash:'',
- 			summary:''
- 		}]
+ 		movie:{
+ 			'title':'',
+ 			'director':'',
+ 			'country':'',
+ 			'language':'',
+ 			'year':'',
+ 			'poster':'',
+ 			'flash':'',
+ 			'summary':''
+ 		}
  	})
  })
 
@@ -86,20 +86,7 @@ app.post('/admin/movie/new',function(req,res){
 	var id=req.body.movie._id
 	var movieObj=req.body.movie
 	var _movie
-	if(id!=="undefined"){
-		Movie.findById(id,function(err,movie){
-			if (err) {
-				console.log(err)
-			}
-			_movie=_.extend(movie,movieObj)
-			_movie.save(function(err,movie){
-				if(err){
-					console.log(err)
-				}
-				res.redirect('/movie/'+movie._id)
-			})
-		})
-	}else{
+	if(id=="undefined"){
 		_movie=new Movie({
 			title:movieObj.title,
 			director:movieObj.director,
@@ -115,6 +102,19 @@ app.post('/admin/movie/new',function(req,res){
 				console.log(err)
 			}
 			res.redirect('/movie/'+movie._id)
+		})
+	}else{
+		Movie.findById(id,function(err,movie){
+			if (err) {
+				console.log(err)
+			}
+			_movie=_.extend(movie,movieObj)
+			_movie.save(function(err,movie){
+				if(err){
+					console.log(err)
+				}
+				res.redirect('/movie/'+movie._id)
+			})
 		})
 	}
 
