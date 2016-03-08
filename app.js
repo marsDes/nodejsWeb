@@ -51,16 +51,16 @@ app.get('/movie/:id',function(req, res){
 //admin page
 app.get('/admin/movie',function(req, res){
  	res.render('admin',{
- 		title:'录入页',
+ 		title:'测试 录入页',
  		movie:[{
- 			title:' ',
- 			director:' ',
- 			country:' ',
- 			lanugage:' ',
- 			year:' ',
- 			poster:' ',
- 			flash:' ',
- 			summary:' '
+ 			title:'',
+ 			director:'',
+ 			country:'',
+ 			language:'',
+ 			year:'',
+ 			poster:'',
+ 			flash:'',
+ 			summary:''
  		}]
  	})
  })
@@ -104,7 +104,7 @@ app.post('/admin/movie/new',function(req,res){
 			title:movieObj.title,
 			director:movieObj.director,
  			country:movieObj.country,
- 			lanugage:movieObj.lanugage,
+ 			language:movieObj.language,
  			year:movieObj.year,
  			poster:movieObj.poster,
  			flash:movieObj.flash,
