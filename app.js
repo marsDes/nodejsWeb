@@ -21,28 +21,34 @@ console.log("website started on prot"+port)
 
 //index page
 app.get('/',function(req, res){
- 	Movie.fetch(function(err, movies){
- 		if (err) {
- 			console.log(err)
- 		}
- 		res.render('index',{
- 			title:'测试 首页',
- 			movies:movies
- 		})
- 	})
- })
+	Movie.fetch(function(err, movies){
+		if (err) {
+			console.log(err)
+		}
+		res.render('index',{
+			title:'测试 首页',
+			movies:movies
+		})
+	})
+})
 
+//detail page
 app.get('/movie/:id',function(req, res){
-  	var id=req.params.id
+	var id=req.params.id;
+	console.log(id);
+	Movie.findById(id,function(err,movie){
+		if(err){
+			console.log(err)
+		}else{
+			res.render('detail',{
+				title:'测试'+ movie.title,
+				movie:movie
+			})
+		}
+	})
+})
 
-  	Movie.findById(id,function(err,movie){
-  		res.render('detail',{
- 			title:'测试'+ movie.title,
- 			movie:movie
- 		})
-  	})
- })
-
+//admin page
 app.get('/admin/movie',function(req, res){
  	res.render('admin',{
  		title:'测试 录入页',
@@ -50,15 +56,16 @@ app.get('/admin/movie',function(req, res){
  			title:'',
  			director:'',
  			country:'',
+ 			lanugage:'',
  			year:'',
  			poster:'',
  			flash:'',
- 			summary:'',
- 			lanugage:''
+ 			summary:''
  		}]
  	})
  })
 
+//updata movie
 app.get('/admin/update/:id',function(req,res){
 	var id=req.params.id
 	if(id){
@@ -75,7 +82,7 @@ app.post('/admin/movie/new',function(res,req){
 	var id=req.body.movie._id
 	var movieObj=req.body.movie
 	var _movie
-	if(id!=="undefinded"){
+	if(id!=="undefined"){
 		Movie.findById(id,function(err,movie){
 			if (err) {
 				console.log(err)
