@@ -1,0 +1,28 @@
+{
+  "name": "nodejs_web_movie",
+  "version": "1.0.1",
+  "description": "nodejs website movie",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "bootstrap": "^3.3.6",
+    "jade": "^1.11.0",
+    "moment": "^2.11.2",
+    "mongoose": "^4.4.4",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "y"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "mars",
+  "license": "ISC"
+}
