@@ -11,10 +11,10 @@ mongoose.connect('mongodb://localhost/imooc')
 
 app.set('views','./views/pages')
 app.set('view engine','jade')
-app.use(bodyParser.urlencoded({
-	extended: true
-}));
+/*app.use(bodyParser.json())*/
+app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static(path.join(__dirname,'bower_components')))
+app.locals.moment=require('moment')
 app.listen(port)
 
 console.log("website started on prot"+port)
@@ -72,7 +72,7 @@ app.get('/admin/update/:id',function(req,res){
 })
 
 app.post('/admin/movie/new',function(res,req){
-	var id=req.body.movie.__dirname
+	var id=req.body.movie._id
 	var movieObj=req.body.movie
 	var _movie
 	if(id!=="undefinded"){
@@ -85,7 +85,7 @@ app.post('/admin/movie/new',function(res,req){
 				if(err){
 					console.log(err)
 				}
-				red.redirect('/movie/'+movie._id)
+				res.redirect('/movie/'+movie._id)
 			})
 		})
 	}else{
@@ -93,17 +93,17 @@ app.post('/admin/movie/new',function(res,req){
 			title:movieObj.title,
 			director:movieObj.director,
  			country:movieObj.country,
+ 			lanugage:movieObj.lanugage,
  			year:movieObj.year,
  			poster:movieObj.poster,
  			flash:movieObj.flash,
- 			summary:movieObj.summary,
- 			lanugage:movieObj.lanugage
+ 			summary:movieObj.summary
 		})
 		_movie.save(function(err,movie){
 			if(err){
 				console.log(err)
 			}
-			red.redirect('/movie/'+movie._id)
+			res.redirect('/movie/'+movie._id)
 		})
 	}
 
