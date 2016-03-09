@@ -11,3 +11,13 @@ mongodb 安装启动<br/>
 mongod --install mongodb --logpath=D:\mongodb\data\log\mongodb.log --dbpath=D:\mongodb\data\db<br/>
 *(需在d盘创建对应的文件夹以及文件)
 
+#网站升级
+需要安装插件
+npm install -g grunt
+npm install -g grunt-cli
+
+npm install grunt-contrib-watch --save-dev
+npm install grunt-contrib-concurrent --save-dev
+npm install grunt-contrib --save-dev
+npm install grunt-nodemon --save-dev
+
