@@ -12,8 +12,9 @@ mongod --install mongodb --logpath=D:\mongodb\data\log\mongodb.log --dbpath=D:\m
 *(需在d盘创建对应的文件夹以及文件)
 
 #网站升级
-需要安装插件
+需要安装的插件模块
 npm install -g grunt
+npm install -g bcryptjs 
 npm install -g grunt-cli
 
 npm install grunt-contrib-watch --save-dev

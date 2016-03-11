@@ -95,9 +95,9 @@ module.exports=function(grunt){
       }
     }
   })
-	grunt.loadNpmTasks('grun1-contrib-watch')
-	grunt.loadNpmTasks('grun1-nodemon')
-	grunt.loadNpmTasks('grun1-concurrent')
+	grunt.loadNpmTasks('grunt-contrib-watch')
+	grunt.loadNpmTasks('grunt-nodemon')
+	grunt.loadNpmTasks('grunt-concurrent')
 
 	grunt.option('force',true)
 	grunt.registerTask('default',['concurrent'])

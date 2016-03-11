@@ -3,6 +3,7 @@ var path=require('path')
 var bodyParser = require('body-parser')
 var mongoose= require('mongoose')
 var Movie=require('./modules/movie')
+var User=require('./modules/user')
 var _=require('underscore')
 var port=process.env.POTR||3000
 var app=express()
@@ -144,4 +145,16 @@ app.delete('/admin/list',function(req,res){
 			}
 		})
 	}
+})
+
+//singup
+app.post('/user/singup',function(req,res){
+	var _user=res.body.user
+	var user=new User(_user)
+	user.save(function(err,user){
+		if(err){
+			console.log(err)
+		}
+		console.log(user)
+	})
 })
