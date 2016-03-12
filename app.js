@@ -147,9 +147,9 @@ app.delete('/admin/list',function(req,res){
 	}
 })
 
-//singup
-app.post('/user/singup',function(req,res){
-	var _user=res.body.user
+//signup
+app.post('/user/signup',function(req,res){
+	var _user=req.body.user
 	var user=new User(_user)
 	user.save(function(err,user){
 		if(err){
@@ -157,4 +157,8 @@ app.post('/user/singup',function(req,res){
 		}
 		console.log(user)
 	})
+})
+
+app.get('/login',function(req,res){
+	res.render('login')
 })
