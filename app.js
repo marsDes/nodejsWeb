@@ -158,7 +158,7 @@ app.post('/user/signup',function(req,res){
 		console.log(user)
 	})
 })
-
+//login
 app.get('/login',function(req,res){
 	res.render('login')
 })
