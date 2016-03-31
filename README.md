@@ -8,7 +8,7 @@ nodejs构建简单电影网站<br/>
 常见问题<br/>
 npm 安装bootstrap报错path 解决：使用Git Bash来代替cmd 命令 bower install bootstrap<br/>
 mongodb 安装启动<br/>
-mongod --install mongodb --logpath=D:\mongodb\data\log\mongodb.log --dbpath=D:\mongodb\data\db<br/>
+mongod --install mongodb --logpath "D:\mongodb\data\log\mongodb.log" --dbpath "D:\mongodb\data\db" <br/>
 *(需在d盘创建对应的文件夹以及文件)
 
 #网站升级
@@ -16,9 +16,9 @@ mongod --install mongodb --logpath=D:\mongodb\data\log\mongodb.log --dbpath=D:\m
 npm install -g grunt
 npm install -g grunt-cli
 
+npm install grunt-contrib --save-dev
 npm install grunt-contrib-watch --save-dev
 npm install grunt-concurrent --save-dev
-npm install grunt-contrib --save-dev
 npm install grunt-nodemon --save-dev
 
 npm install bcryptjs 
