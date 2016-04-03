@@ -2,6 +2,8 @@
 
 需要安装的模块
 npm install body-parser bootstarp express jade moment mongoose underscore
+npm install express-session --save
+npm install cookie-parser --save
 npm install -g bower
 
 nodejs构建简单电影网站<br/>
@@ -14,7 +16,7 @@ mongod --logpath "D:\mongodb\log\mongodb.log" --dbpath "D:\mongodb\db" <br/>
 
 #网站升级
 需要安装的插件模块
-npm install -g grunt
+npm install grunt
 npm install -g grunt-cli
 
 npm install grunt-contrib --save-dev
