@@ -6,6 +6,7 @@
   "dependencies": {
     "body-parser": "^1.15.0",
     "bootstrap": "^3.3.6",
+    "connect-mongo": "^1.1.0",
     "express": "^4.13.4",
     "jade": "^1.11.0",
     "jquery": "^2.2.2",
@@ -15,6 +16,8 @@
   },
   "devDependencies": {
     "bcryptjs": "^2.3.0",
+    "cookie-parser": "^1.4.1",
+    "express-session": "^1.13.0",
     "grunt": "^0.4.5",
     "grunt-concurrent": "^2.2.1",
     "grunt-contrib": "^0.11.0",

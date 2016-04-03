@@ -40,6 +40,15 @@ UserSchema.pre('save',function(next){
 	//next()
 })
 
+UserSchema.methods={
+	comparePassword:function(_password,cb){
+		bcrypt.compare(_password,this.password,function(err,isMath){
+			if(err) return cb(err)
+			cb(null,isMath)
+		})
+	}
+}
+
 UserSchema.statics={
 	fetch:function(cb){
 		return this.find({}).sort('meta.updateAt').exec(cb)
